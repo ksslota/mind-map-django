@@ -1,0 +1,15 @@
+{% extends "mind_maps/base.html" %}
+
+{% block content %}
+	
+	<p><a href="{% url 'mind_maps:topic' topic.id %}">{{ topic }}</a></p>
+
+	<p>Edit entry:</p>
+
+	<form action="{% url 'mind_maps:edit_entry' entry.id %}" method='post'>
+		{% csrf_token %}
+		{{ form.as_div }}
+		<button name="submit">Save changes</button>
+	</form>
+
+{% endblock content %}
