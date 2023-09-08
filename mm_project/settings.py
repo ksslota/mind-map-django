@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from platformshconfig import Config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -136,8 +137,6 @@ LOGOUT_REDIRECT_URL = 'mind_maps:index'
 LOGIN_URL = 'accounts:login'
 
 # Platform.sh settings.
-from platformshconfig import Config
-
 config = Config()
 if config.is_valid_platform():
     ALLOWED_HOSTS.append('.platformsh.site')
